@@ -1,0 +1,658 @@
+<?php
+
+session_start();
+$usuario = $_SESSION['username'];
+
+if(!isset($usuario)){
+    header("location: Iniciar Sesion.php");
+} 
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PRODUCTOS | iHelp</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+	<link rel="stylesheet" href="css/Formato1.css" type="text/css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="js/Archivo.js"></script>
+</head>
+<body onload="nobackbutton();">
+	<img src="img/Fondo2.jpg" alt="fondo" id="f"/>
+    <header>
+        <div class="container">
+            <div class="name"> <img class="logo" src="img/Logo iHelp.jpeg"> &nbsp; </div>
+        </div>
+        <nav id="site-nav" class="site-nav">
+            <ul>
+                <li><a href="Inicio.php"><i class="fa fa-home"></i> INICIO</a></li>
+                <li><a id="actual" href="Productos.php"><i class="fa fa-shopping-bag"></i> PRODUCTOS</a></li>
+                <li><a href="Contacto.php"><i class="fas fa-headset"></i> CONTACTO</a></li>
+                <li><a href="Usuario.php"><i class="fas fa-user"></i> <?php echo $usuario; ?></a></li>
+                <li><a href="salir.php"><i class="fas fa-sign-out-alt"></i> CERRAR SESIÓN</a></li>
+            </ul>
+        </nav>
+        <div id="menu-toggle" class="menu-toggle" onClick="cambiarClase()">
+            <div class="hamburger"></div>
+        </div>
+    </header>
+    
+    <div class="contactoEncabezado">
+        <br><br><br>
+        <h1>PRODUCTOS</h1>
+        <p class="pMedio">¡Encuentra todo lo que necesitas justo aquí!</p><br><br>
+
+        <table class="topProductos">
+            <tr>
+                <th><img src="img/productos/fundas1.jpg"></th>
+                <th><img src="img/productos/cargador2.jpg"></th>
+                <th><img src="img/productos/iphone3.jpg"></th>
+            </tr>
+            
+            <tr class="titulo_productos">
+                <th>Funda Acrilico iPhone</th>
+                <th>Cargador Tipo C</th>
+                <th>iPhone 7 Plus</th>
+            </tr>
+
+            <tr class="titulo_productos">
+                <th>$150 MXN</th>
+                <th>$250 MXN</th>
+                <th>$3500 MXN</th>
+            </tr>
+
+            <tr class="comprar_productos">
+                <th class="comprar"><button id="btn-abrir-popup1" class="ver_mas">VER MAS</button></th>
+                <th class="comprar"><button id="btn-abrir-popup2" class="ver_mas">VER MAS</button></th>
+                <th class="comprar"><button id="btn-abrir-popup3" class="ver_mas">VER MAS</button></th>
+            </tr>
+
+            <tr>
+                <th><img src="img/productos/cargador4.jpg"></th>
+                <th><img src="img/productos/mica5.jpg"></th>
+                <th><img src="img/productos/mica6.jpg"></th>
+            </tr>
+
+            <tr class="titulo_productos">
+                <th>Cargador para Laptop</th>
+                <th>Mica Samsung</th>
+                <th>Mica LG</th>
+            </tr>
+
+            <tr class="titulo_productos">
+                <th>$450 MXN</th>
+                <th>$50 MXN</th>
+                <th>$50 MXN</th>
+            </tr>
+
+            <tr class="comprar_productos">
+                <th class="comprar"><button id="btn-abrir-popup4" class="ver_mas">VER MAS</button></th>
+                <th class="comprar"><button id="btn-abrir-popup5" class="ver_mas">VER MAS</button></th>
+                <th class="comprar"><button id="btn-abrir-popup6" class="ver_mas">VER MAS</button></th>
+            </tr>
+
+            <tr>
+                <th><img src="img/productos/mica7.jpg"></th>
+                <th><img src="img/productos/mica8.jpg"></th>
+                <th><img src="img/productos/mica9.jpg"></th>
+            </tr>
+
+            <tr class="titulo_productos">
+                <th>Mica Motorola</th>
+                <th>Mica Xiaomi</th>
+                <th>Mica Oppo</th>
+            </tr>
+
+            <tr class="titulo_productos">
+                <th>$50 MXN</th>
+                <th>$50 MXN</th>
+                <th>$50 MXN</th>
+            </tr>
+
+            <tr class="comprar_productos">
+                <th class="comprar"><button id="btn-abrir-popup7" class="ver_mas">VER MAS</button></th>
+                <th class="comprar"><button id="btn-abrir-popup8" class="ver_mas">VER MAS</button></th>
+                <th class="comprar"><button id="btn-abrir-popup9" class="ver_mas">VER MAS</button></th>
+            </tr>
+
+            <tr>
+                <th><img src="img/productos/mica10.jpg"></th>
+                <th><img src="img/productos/mica11.jpg"></th>
+                <th><img src="img/productos/oled12.jpg"></th>
+            </tr>
+
+            <tr class="titulo_productos">
+                <th>Mica Huawei</th>
+                <th>Mica Nokia</th>
+                <th>Display Oled Samsung</th>
+            </tr>
+
+            <tr class="titulo_productos">
+                <th>$50 MXN</th>
+                <th>$50 MXN</th>
+                <th>$2000 MXN</th>
+            </tr>
+
+            <tr class="comprar_productos">
+                <th class="comprar"><button id="btn-abrir-popup10" class="ver_mas">VER MAS</button></th>
+                <th class="comprar"><button id="btn-abrir-popup11" class="ver_mas">VER MAS</button></th>
+                <th class="comprar"><button id="btn-abrir-popup12" class="ver_mas">VER MAS</button></th>
+            </tr>
+
+            <tr>
+                <th><img src="img/productos/ssd13.jpg"></th>
+                <th><img src="img/productos/audifonos14.jpg"></th>
+                <th><img src="img/productos/usb15.jpg"></th>
+            </tr>
+
+            <tr class="titulo_productos">
+                <th>SSD Kingston</th>
+                <th>Audifonos Samsung</th>
+                <th>Memoria USB Kingston</th>
+            </tr>
+
+            <tr class="titulo_productos">
+                <th>$600 MXN</th>
+                <th>$100 MXN</th>
+                <th>$120 MXN</th>
+            </tr>
+
+            <tr class="comprar_productos">
+                <th class="comprar"><button id="btn-abrir-popup13" class="ver_mas">VER MAS</button></th>
+                <th class="comprar"><button id="btn-abrir-popup14" class="ver_mas">VER MAS</button></th>
+                <th class="comprar"><button id="btn-abrir-popup15" class="ver_mas">VER MAS</button></th>
+            </tr>
+
+        </table>
+        <br><br>
+        <!-- Producto 1-->
+        <div class="overlay" id="overlay1">
+            <div class="popup" id="popup1">
+                <a href="#" id="btn-cerrar-popup1" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+                <form action="Preorden.php" method="POST" onsubmit="return validar_p1();">
+                    <table class="product">
+                        <tr class="titulo_productos_modal">
+                            <th colspan="2">Funda Acrilico iPhone</th>
+                        </tr>
+                        <tr>
+                            <td rowspan="6"><img src="img/productos/fundas1.jpg"></td>
+                            <td class="detalle_productos"><input type="text" name="idproducto" value="1" class="dato"></td>
+                        </tr>
+                        <tr>
+                            <td class="detalle_productos">Funda de uso rudo de acrilico, marca Agrigel</td>
+                        </tr>
+                        <tr>
+                            <td class="detalle_productos">$150 MXN</td>
+                        </tr>
+                        <tr class="detalle_productos">
+                            <td><input type="number" id="cantidad_p1" name="cantidad" min="1" max="10" onKeyDown="return false" placeholder="Ingresa la cantidad"></td>
+                        </tr>
+                        <tr class="detalle_productos">
+                            <td><input type="submit" class="btn-submit" value="ENCARGAR"></td>
+                        </tr>
+                        <tr class="detalle_productos">
+                            <td></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+        <!-- Producto 2-->
+        <div class="overlay" id="overlay2">
+            <div class="popup" id="popup2">
+                <a href="#" id="btn-cerrar-popup2" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+                <form action="Preorden.php" method="POST" onsubmit="return validar_p2();">
+                    <table class="product">
+                        <tr class="titulo_productos_modal">
+                            <th colspan="2">Cargador Tipo C</th>
+                        </tr>
+                        <tr>
+                            <td rowspan="6"><img src="img/productos/cargador2.jpg"></td>
+                            <td class="detalle_productos"><input type="text" name="idproducto" value="2" class="dato"></td>
+                        </tr>
+                        <tr>
+                            <td class="detalle_productos">Cargador de carga rapida, marca 1Hora</td>
+                        </tr>
+                        <tr>
+                            <td class="detalle_productos">$250 MXN</td>
+                        </tr>
+                        <tr class="detalle_productos">
+                            <td><input type="number" id="cantidad_p2" name="cantidad" min="1" max="10" onKeyDown="return false" placeholder="Ingresa la cantidad"></td>
+                        </tr>
+                        <tr class="detalle_productos">
+                            <td><input type="submit" class="btn-submit" value="ENCARGAR"></td>
+                        </tr>
+                        <tr class="detalle_productos">
+                            <td></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+        <!-- Producto 3-->
+        <div class="overlay" id="overlay3">
+            <div class="popup" id="popup3">
+                <a href="#" id="btn-cerrar-popup3" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+                <form action="Preorden.php" method="POST" onsubmit="return validar_p3();">
+                    <table class="product">
+                        <tr class="titulo_productos_modal">
+                            <th colspan="2">iPhone 7 Plus</th>
+                        </tr>
+                        <tr>
+                            <td rowspan="6"><img src="img/productos/iphone3.jpg"></td>
+                            <td class="detalle_productos"><input type="text" name="idproducto" value="3" class="dato"></td>
+                        </tr>
+                        <tr>
+                            <td class="detalle_productos">Sistema Operativo IOS 14, 3GB de RAM, marca Apple</td>
+                        </tr>
+                        <tr>
+                            <td class="detalle_productos">$3500 MXN</td>
+                        </tr>
+                        <tr class="detalle_productos">
+                            <td ><input type="number" id="cantidad_p3" name="cantidad" min="1" max="5" onKeyDown="return false" placeholder="Ingresa la cantidad"></td>
+                        </tr>
+                        <tr class="detalle_productos">
+                            <td><input type="submit" class="btn-submit" value="ENCARGAR"></td>
+                        </tr>
+                        <tr class="detalle_productos">
+                            <td></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+        <!-- Producto 4-->
+        <div class="overlay" id="overlay4">
+            <div class="popup" id="popup4">
+                <a href="#" id="btn-cerrar-popup4" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+                <form action="Preorden.php" method="POST" onsubmit="return validar_p4();">
+                    <table class="product">
+                        <tr class="titulo_productos_modal">
+                            <th colspan="2">Cargador para Laptop</th>
+                        </tr>
+                        <tr>
+                            <td rowspan="6"><img src="img/productos/cargador4.jpg"></td>
+                            <td class="detalle_productos"><input type="text" name="idproducto" value="4" class="dato"></td>
+                        </tr>
+                        <tr>
+                            <td class="detalle_productos">Cargador macsafe de 30W, marca ELE-GATE</td>
+                        </tr>
+                        <tr>
+                            <td class="detalle_productos">$450 MXN</td>
+                        </tr>
+                        <tr class="detalle_productos">
+                            <td ><input type="number" id="cantidad_p4" name="cantidad" min="1" max="15" onKeyDown="return false" placeholder="Ingresa la cantidad"></td>
+                        </tr>
+                        <tr class="detalle_productos">
+                            <td><input type="submit" class="btn-submit" value="ENCARGAR"></td>
+                        </tr>
+                        <tr class="detalle_productos">
+                            <td></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+        <!-- Producto 5-->
+        <div class="overlay" id="overlay5">
+            <div class="popup" id="popup5">
+                <a href="#" id="btn-cerrar-popup5" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+                <form action="Preorden.php" method="POST" onsubmit="return validar_p5();">
+                    <table class="product">
+                        <tr class="titulo_productos_modal">
+                            <th colspan="2">Mica Samsung</th>
+                        </tr>
+                        <tr>
+                            <td rowspan="6"><img src="img/productos/mica5.jpg"></td>
+                            <td class="detalle_productos"><input type="text" name="idproducto" value="5" class="dato"></td>
+                        </tr>
+                        <tr>
+                            <td class="detalle_productos">Cristal templado para protejer la pantalla del telefono, marca 9-D</td>
+                        </tr>
+                        <tr>
+                            <td class="detalle_productos">$50 MXN</td>
+                        </tr>
+                        <tr class="detalle_productos">
+                            <td ><input type="number" id="cantidad_p5" name="cantidad" min="1" max="70" onKeyDown="return false" placeholder="Ingresa la cantidad"></td>
+                        </tr>
+                        <tr class="detalle_productos">
+                            <td><input type="submit" class="btn-submit" value="ENCARGAR"></td>
+                        </tr>
+                        <tr class="detalle_productos">
+                            <td></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+        <!-- Producto 6-->
+        <div class="overlay" id="overlay6">
+            <div class="popup" id="popup6">
+                <a href="#" id="btn-cerrar-popup6" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+                <form action="Preorden.php" method="POST" onsubmit="return validar_p6();">
+                    <table class="product">
+                        <tr class="titulo_productos_modal">
+                            <th colspan="2">Mica LG</th>
+                        </tr>
+                        <tr>
+                            <td rowspan="6"><img src="img/productos/mica6.jpg"></td>
+                            <td class="detalle_productos"><input type="text" name="idproducto" value="6" class="dato"></td>
+                        </tr>
+                        <tr>
+                            <td class="detalle_productos">Cristal templado para protejer la pantalla del telefono, marca 9-D</td>
+                        </tr>
+                        <tr>
+                            <td class="detalle_productos">$50 MXN</td>
+                        </tr>
+                        <tr class="detalle_productos">
+                            <td ><input type="number" id="cantidad_p6" name="cantidad" min="1" max="70" onKeyDown="return false" placeholder="Ingresa la cantidad"></td>
+                        </tr>
+                        <tr class="detalle_productos">
+                            <td><input type="submit" class="btn-submit" value="ENCARGAR"></td>
+                        </tr>
+                        <tr class="detalle_productos">
+                            <td></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+        <!-- Producto 7-->
+        <div class="overlay" id="overlay7">
+            <div class="popup" id="popup7">
+                <a href="#" id="btn-cerrar-popup7" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+                <form action="Preorden.php" method="POST" onsubmit="return validar_p7();">
+                    <table class="product">
+                        <tr class="titulo_productos_modal">
+                            <th colspan="2">Mica Motorola</th>
+                        </tr>
+                        <tr>
+                            <td rowspan="6"><img src="img/productos/mica7.jpg"></td>
+                            <td class="detalle_productos"><input type="text" name="idproducto" value="7" class="dato"></td>
+                        </tr>
+                        <tr>
+                            <td class="detalle_productos">Cristal templado para protejer la pantalla del telefono, marca 9-D</td>
+                        </tr>
+                        <tr>
+                            <td class="detalle_productos">$50 MXN</td>
+                        </tr>
+                        <tr class="detalle_productos">
+                            <td ><input type="number" id="cantidad_p7" name="cantidad" min="1" max="70" onKeyDown="return false" placeholder="Ingresa la cantidad"></td>
+                        </tr>
+                        <tr class="detalle_productos">
+                            <td><input type="submit" class="btn-submit" value="ENCARGAR"></td>
+                        </tr>
+                        <tr class="detalle_productos">
+                            <td></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+        <!-- Producto 8-->
+        <div class="overlay" id="overlay8">
+            <div class="popup" id="popup8">
+                <a href="#" id="btn-cerrar-popup8" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+                <form action="Preorden.php" method="POST" onsubmit="return validar_p8();">
+                    <table class="product">
+                        <tr class="titulo_productos_modal">
+                            <th colspan="2">Mica Xiaomi</th>
+                        </tr>
+                        <tr>
+                            <td rowspan="6"><img src="img/productos/mica8.jpg"></td>
+                            <td class="detalle_productos"><input type="text" name="idproducto" value="8" class="dato"></td>
+                        </tr>
+                        <tr>
+                            <td class="detalle_productos">Cristal templado para protejer la pantalla del telefono, marca 9-D</td>
+                        </tr>
+                        <tr>
+                            <td class="detalle_productos">$50 MXN</td>
+                        </tr>
+                        <tr class="detalle_productos">
+                            <td ><input type="number" id="cantidad_p8" name="cantidad" min="1" max="70" onKeyDown="return false" placeholder="Ingresa la cantidad"></td>
+                        </tr>
+                        <tr class="detalle_productos">
+                            <td><input type="submit" class="btn-submit" value="ENCARGAR"></td>
+                        </tr>
+                        <tr class="detalle_productos">
+                            <td></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+        <!-- Producto 9-->
+        <div class="overlay" id="overlay9">
+            <div class="popup" id="popup9">
+                <a href="#" id="btn-cerrar-popup9" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+                <form action="Preorden.php" method="POST" onsubmit="return validar_p9();">
+                    <table class="product">
+                        <tr class="titulo_productos_modal">
+                            <th colspan="2">Mica Oppo</th>
+                        </tr>
+                        <tr>
+                            <td rowspan="6"><img src="img/productos/mica9.jpg"></td>
+                            <td class="detalle_productos"><input type="text" name="idproducto" value="9" class="dato"></td>
+                        </tr>
+                        <tr>
+                            <td class="detalle_productos">Cristal templado para protejer la pantalla del telefono, marca 9-D</td>
+                        </tr>
+                        <tr>
+                            <td class="detalle_productos">$50 MXN</td>
+                        </tr>
+                        <tr class="detalle_productos">
+                            <td ><input type="number" id="cantidad_p9" name="cantidad" min="1" max="70" onKeyDown="return false" placeholder="Ingresa la cantidad"></td>
+                        </tr>
+                        <tr class="detalle_productos">
+                            <td><input type="submit" class="btn-submit" value="ENCARGAR"></td>
+                        </tr>
+                        <tr class="detalle_productos">
+                            <td></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+        <!-- Producto 10-->
+        <div class="overlay" id="overlay10">
+            <div class="popup" id="popup10">
+                <a href="#" id="btn-cerrar-popup10" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+                <form action="Preorden.php" method="POST" onsubmit="return validar_p10();">
+                    <table class="product">
+                        <tr class="titulo_productos_modal">
+                            <th colspan="2">Mica Huawei</th>
+                        </tr>
+                        <tr>
+                            <td rowspan="6"><img src="img/productos/mica10.jpg"></td>
+                            <td class="detalle_productos"><input type="text" name="idproducto" value="10" class="dato"></td>
+                        </tr>
+                        <tr>
+                            <td class="detalle_productos">Cristal templado para protejer la pantalla del telefono, marca 9-D</td>
+                        </tr>
+                        <tr>
+                            <td class="detalle_productos">$50 MXN</td>
+                        </tr>
+                        <tr class="detalle_productos">
+                            <td ><input type="number" id="cantidad_p10" name="cantidad" min="1" max="70" onKeyDown="return false" placeholder="Ingresa la cantidad"></td>
+                        </tr>
+                        <tr class="detalle_productos">
+                            <td><input type="submit" class="btn-submit" value="ENCARGAR"></td>
+                        </tr>
+                        <tr class="detalle_productos">
+                            <td></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+        <!-- Producto 11-->
+        <div class="overlay" id="overlay11">
+            <div class="popup" id="popup11">
+                <a href="#" id="btn-cerrar-popup11" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+                <form action="Preorden.php" method="POST" onsubmit="return validar_p11();">
+                    <table class="product">
+                        <tr class="titulo_productos_modal">
+                            <th colspan="2">Mica Nokia</th>
+                        </tr>
+                        <tr>
+                            <td rowspan="6"><img src="img/productos/mica11.jpg"></td>
+                            <td class="detalle_productos"><input type="text" name="idproducto" value="11" class="dato"></td>
+                        </tr>
+                        <tr>
+                            <td class="detalle_productos">Cristal templado para protejer la pantalla del telefono, marca 9-D</td>
+                        </tr>
+                        <tr>
+                            <td class="detalle_productos">$50 MXN</td>
+                        </tr>
+                        <tr class="detalle_productos">
+                            <td ><input type="number" id="cantidad_p11" name="cantidad" min="1" max="70" onKeyDown="return false" placeholder="Ingresa la cantidad"></td>
+                        </tr>
+                        <tr class="detalle_productos">
+                            <td><input type="submit" class="btn-submit" value="ENCARGAR"></td>
+                        </tr>
+                        <tr class="detalle_productos">
+                            <td></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+        <!-- Producto 12-->
+        <div class="overlay" id="overlay12">
+            <div class="popup" id="popup12">
+                <a href="#" id="btn-cerrar-popup12" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+                <form action="Preorden.php" method="POST" onsubmit="return validar_p12();">
+                    <table class="product">
+                        <tr class="titulo_productos_modal">
+                            <th colspan="2">Display Oled Samsung</th>
+                        </tr>
+                        <tr>
+                            <td rowspan="6"><img src="img/productos/oled12.jpg"></td>
+                            <td class="detalle_productos"><input type="text" name="idproducto" value="16" class="dato"></td>
+                        </tr>
+                        <tr>
+                            <td class="detalle_productos">Pantalla Oled de repuesto para modelo Samsung Galaxy A70</td>
+                        </tr>
+                        <tr>
+                            <td class="detalle_productos">$2000 MXN</td>
+                        </tr>
+                        <tr class="detalle_productos">
+                            <td ><input type="number" id="cantidad_p12" name="cantidad" min="1" max="6" onKeyDown="return false" placeholder="Ingresa la cantidad"></td>
+                        </tr>
+                        <tr class="detalle_productos">
+                            <td><input type="submit" class="btn-submit" value="ENCARGAR"></td>
+                        </tr>
+                        <tr class="detalle_productos">
+                            <td></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+        <!-- Producto 13-->
+        <div class="overlay" id="overlay13">
+            <div class="popup" id="popup13">
+                <a href="#" id="btn-cerrar-popup13" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+                <form action="Preorden.php" method="POST" onsubmit="return validar_p13();">
+                    <table class="product">
+                        <tr class="titulo_productos_modal">
+                            <th colspan="2">SSD Kingston</th>
+                        </tr>
+                        <tr>
+                            <td rowspan="6"><img src="img/productos/ssd13.jpg"></td>
+                            <td class="detalle_productos"><input type="text" name="idproducto" value="13" class="dato"></td>
+                        </tr>
+                        <tr>
+                            <td class="detalle_productos">Disco de estado solido con capacidad de 120GB, marca Kingston</td>
+                        </tr>
+                        <tr>
+                            <td class="detalle_productos">$600 MXN</td>
+                        </tr>
+                        <tr class="detalle_productos">
+                            <td ><input type="number" id="cantidad_p13" name="cantidad" min="1" max="5" onKeyDown="return false" placeholder="Ingresa la cantidad"></td>
+                        </tr>
+                        <tr class="detalle_productos">
+                            <td><input type="submit" class="btn-submit" value="ENCARGAR"></td>
+                        </tr>
+                        <tr class="detalle_productos">
+                            <td></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+        <!-- Producto 14-->
+        <div class="overlay" id="overlay14">
+            <div class="popup" id="popup14">
+                <a href="#" id="btn-cerrar-popup14" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+                <form action="Preorden.php" method="POST" onsubmit="return validar_p14();">
+                    <table class="product">
+                        <tr class="titulo_productos_modal">
+                            <th colspan="2">Audifonos Samsung</th>
+                        </tr>
+                        <tr>
+                            <td rowspan="6"><img src="img/productos/audifonos14.jpg"></td>
+                            <td class="detalle_productos"><input type="text" name="idproducto" value="14" class="dato"></td>
+                        </tr>
+                        <tr>
+                            <td class="detalle_productos">Audifonos afinados con AKG alambricos, marca Samsung</td>
+                        </tr>
+                        <tr>
+                            <td class="detalle_productos">$100 MXN</td>
+                        </tr>
+                        <tr class="detalle_productos">
+                            <td ><input type="number" id="cantidad_p14" name="cantidad" min="1" max="8" onKeyDown="return false" placeholder="Ingresa la cantidad"></td>
+                        </tr>
+                        <tr class="detalle_productos">
+                            <td><input type="submit" class="btn-submit" value="ENCARGAR"></td>
+                        </tr>
+                        <tr class="detalle_productos">
+                            <td></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div> 
+        <!-- Producto 15-->
+        <div class="overlay" id="overlay15">
+            <div class="popup" id="popup15">
+                <a href="#" id="btn-cerrar-popup15" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+                <form action="Preorden.php" method="POST" onsubmit="return validar_p15();">
+                    <table class="product">
+                        <tr class="titulo_productos_modal">
+                            <th colspan="2">Memoria USB Kingston</th>
+                        </tr>
+                        <tr>
+                            <td rowspan="6"><img src="img/productos/usb15.jpg"></td>
+                            <td class="detalle_productos"><input type="text" name="idproducto" value="15" class="dato"></td>
+                        </tr>
+                        <tr>
+                            <td class="detalle_productos">Memoria externa de 32GB, marca Kingston</td>
+                        </tr>
+                        <tr>
+                            <td class="detalle_productos">$120 MXN</td>
+                        </tr>
+                        <tr class="detalle_productos">
+                            <td ><input type="number" id="cantidad_p15" name="cantidad" min="1" max="10" onKeyDown="return false" placeholder="Ingresa la cantidad"></td>
+                        </tr>
+                        <tr class="detalle_productos">
+                            <td><input type="submit" class="btn-submit" value="ENCARGAR"></td>
+                        </tr>
+                        <tr class="detalle_productos">
+                            <td></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="js/popup.js"></script>
+    <div class="footer">
+        <img class="logoFooter" src="img/Logo iHelp.jpeg">
+        <h2>Con la Mejor Relacion Calidad-Precio</h2>
+        <h2>Copyright © Todos los derechos reservados.</h2>
+    </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+#title
+{
+  font-size: 1.5em;
+text-transform: uppercase;
+letter-spacing: .2em;
+  color: black;
+  border-radius: 15px;
+  border: 3px outset;
+  /*text-shadow: 2px 2px 2px black;*/
+  text-align: center;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 10%;
+}
+.imgC{
+    text-align: center;
+    /*display:block;
+    margin:auto;*/
+}
+#ti1{
+    text-align: center;
+}
+.ser{
+      margin: 0% 20% 5%;
+}
+.ser ul{
+    margin-left: 5%;
+    margin-right: 5%;
+}
